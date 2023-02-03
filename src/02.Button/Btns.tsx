@@ -8,7 +8,7 @@ export const Btns = () => {
   }
 
   return (
-    <div><span className="lessonTitle">Lesson 3 - useState</span>
+    <div><span className="lessonTitle">Lesson 2 - Button</span>
       <br/>
       <br/>
       <Button name={'Vasya'} callback={() => {ConsoleName('Vasya')}}/>

@@ -14,7 +14,7 @@ type StudentType = {
 export const Map = (props: NewComponentType) => {
   return (
 
-    <div><span className="lessonTitle">Lesson 3 - useState</span>
+    <div><span className="lessonTitle">Lesson 1 - Map</span>
       <ul>
         {props.students.map((studentObj) => {
           return (<li key={studentObj.id}>

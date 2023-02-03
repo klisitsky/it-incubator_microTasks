@@ -3,6 +3,7 @@ import './App.css';
 import {Map} from "./01.Map/Map";
 import {Btns} from "./02.Button/Btns";
 import {UseState} from "./03.UseState/UseState";
+import {FilterMoney} from "./04.Filter/FilterMoney";
 
 const students = [
   {id: 1, name: "James", age: 8},
@@ -18,12 +19,24 @@ const students = [
   {id: 11, name: "Christopher", age: 100},
 ]
 
+const money = [
+  {banknote: "dollar", nominal: 100, number: "a123456789"},
+  {banknote: "dollar", nominal: 50, number: "b123456789"},
+  {banknote: "ruble", nominal: 100, number: "c123456789"},
+  {banknote: "dollar", nominal: 100, number: "d123456789"},
+  {banknote: "dollar", nominal: 50, number: "e123456789"},
+  {banknote: "ruble", nominal: 100, number: "f123456789"},
+  {banknote: "dollar", nominal: 50, number: "j123456789"},
+  {banknote: "ruble", nominal: 50, number: "h123456789"}
+]
+
 function App() {
   return (
     <div>
       <Map students={students}/>
       <Btns/>
       <UseState/>
+      <FilterMoney money={money}/>
     </div>);
 }
 
