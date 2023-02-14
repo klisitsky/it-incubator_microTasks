@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Map} from "./01.Map/Map";
 import {Btns} from "./02.Button/Btns";
 import {UseState} from "./03.UseState/UseState";
 import {FilterMoney} from "./04.Filter/FilterMoney";
+import {FullInput} from "./05.Input/FullInput";
+import {Input} from "./05.Input/Input";
+import {Btn} from "./05.Input/Btn";
 
 const students = [
   {id: 1, name: "James", age: 8},
@@ -30,13 +33,41 @@ const money = [
   {banknote: "ruble", nominal: 50, number: "h123456789"}
 ]
 
+
+
 function App() {
+
+  let [serverMessages, setServerMessages] = useState([
+    {message: 'первое сообщение'},
+    {message: 'второе сообщение'},
+    {message: 'третье сообщение'}
+  ])
+  const addTask = (text:string) => {
+    const newTask = {message: text}
+    setServerMessages([...serverMessages, newTask])
+  }
+
+  let [title, setTitle] = useState('')
+
+
+  const callBackAddTask = () => {
+    addTask(title)
+    setTitle('')
+  }
   return (
     <div>
-      <Map students={students}/>
-      <Btns/>
-      <UseState/>
-      <FilterMoney money={money}/>
+      {/*<Map students={students}/>*/}
+      {/*<Btns/>*/}
+      {/*<UseState/>*/}
+      {/*<FilterMoney money={money}/>*/}
+      {/*<FullInput addTask={addTask}/>*/}
+      <Input title={title} setTitle={setTitle}/>
+      <Btn name='Add' callBack={callBackAddTask}/>
+      <ul>
+        {serverMessages.map((m, index) => {
+          return <li key={index}>{m.message}</li>
+        })}
+      </ul>
     </div>);
 }
 
